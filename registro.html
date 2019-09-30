@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v3.8.5">
+    <meta name="google-signin-client_id" content="631309151798-9h89u1hlp4ko6arj8pqclgj25gk72qnl.apps.googleusercontent.com">
+    <title>eMercado - Todo lo que busques está aquí</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/sign-in/">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+   </style>
+    <link href="css/registro.css" rel="stylesheet">
+  </head>
+<body class="text-center">
+    <form class="form-signin" method="POST" action="index.html">
+    <img class="mb-4" src="img/registro.png" alt="" width="300">
+  <h1 class="h3 mb-3 font-weight-normal">Iniciar sesión</h1>
+  <label for="inputUsuario" class="sr-only">Usuario</label>
+  <input type="text" id="inputUsuario" class="form-control" placeholder="Usuario *" required autofocus>
+  <label for="inputPassword" class="sr-only">Contraseña</label>
+  <input type="password" id="inputPassword" class="form-control" placeholder="Contraseña *" required>
+  <div class="checkbox mb-3">
+    <label>
+      <input type="checkbox" value="remember-me"> Recordar mis datos
+    </label>
+  </div>
+  <button class="btn btn-lg btn-primary btn-block" type="submit" onclick="nombreUsuario()" >Iniciar sesión</button>
+  <br>
+  <p>* Campos obligatorios</p>
+  <br>
+  <iframe src="http://developers.google.com/identity/sign-in/web/demos/signin_contextual_simple.jshtml?authuser=1" style="width: 200px;
+height: 60px; border: none;"></iframe>
+  <div class="g-signin2" data-onsuccess="onSignIn"></div>
+  <div class="data">
+    <p>Profile Details</p>
+    <img id="pic" class="img-circle" width="100" height="100">
+    <p>e-mail</p>
+    <p id="email" class="alert alert-danger"></p>
+    <button onclick="signOut()" class="btn btn-danger">Sign Out</button>
+  </div>
+</form>
+<!--  clave SX3VPd4lUng4owYs3AkvDFxr -->
+<script src="js/registro.js"></script>
+</body>
+</html>
