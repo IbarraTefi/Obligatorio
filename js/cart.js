@@ -16,6 +16,7 @@ function updateTotalCosts(){
 
 function updateSubtotal(){
 
+    
 }
 
 function showPaymentTypeNotSelected(){
@@ -29,21 +30,24 @@ function hidePaymentTypeNotSelected(){
 function showArticles(articles){
     let htmlContentToAppend = "";
 
+    for(let i = 0; i < articles.length; i++){
+        let article = articles[i];
+
         htmlContentToAppend += `
         <div class="row">
             <div class="col-3">
-                <img src="` + articles.src + `"alt="` + articles.name + `" class="img-thumbnail">
+                <img src="` + article.src + `" alt="` + article.name + ` class="img-thumbnail">
                 </div>
                 <div class="col">
                     <div class="d-flex w-100 justify-content-between">
-                        <h4 class="mb-1">` + articles.name +`</h4>
-                     <small class="text-muted">` + articles.currency + " " + articles.unitCost + `</small>
+                        <h4 class="mb-1">` + article.name +`</h4>
+                     <small class="text-muted">` + article.currency + " " + article.unitCost + `</small>
                 </div>
-                <p class="mb-1">` + articles.count + `</p>
+                <p class="mb-1">` + article.count + `</p>
             </div>
         </div>
         `
-
+    }
     document.getElementById("art-list-container").innerHTML = htmlContentToAppend;
 }
 
@@ -54,7 +58,7 @@ document.addEventListener("DOMContentLoaded", function(e){
     getJSONData(CART_INFO_URL).then(function(resultObj){
         if(resultObj.status === "ok"){
 
-            infoArticle = resultObj.data;
+            infoArticle = resultObj.data.articles;
 
             showArticles(infoArticle);
         }
