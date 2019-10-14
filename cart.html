@@ -74,21 +74,31 @@
     <div class="container">
       <div class="text-center p-4">
         <h2>Mi Carrito</h2>
-        <p class="lead">Complete sus datos para finalizar la compra.</p>
       </div>
-        <div class="list-group" id="art-list-container">
+      <p>
+        <div id="art-list-container">
         </div>
-        <hr class="mb-4">
-      <div class="row">
-        <div class="col-md-3 mb-3">
-          <label for="articleCountInput">Cantidad a comprar</label>
-          <input type="number" class="form-control" id="articleCountInput" placeholder="" required="" value="1" min="1">
-          <div class="invalid-feedback">
-            La cantidad de artículos a comprar debe ser menor al stock.
-          </div>
-        </div>
-
-      </div>
+        <table border="1">
+          <tbody>
+            <tr>
+              <td>
+                <h5><strong>Cantidad</strong></h5>
+              </td>
+              <td>
+                <h5><strong>Sub total</strong></h5>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                  <input type="number" width="100px" class="form-control" id="articleCountInput" placeholder="" required="" min="1">
+              </td>
+              <td>
+                  <span class="text-muted" id="subTotal">-</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </p>
         <hr class="mb-4">
       <div class="row">
         <div class="col-md-3 mb-3">
