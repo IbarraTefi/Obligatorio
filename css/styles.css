@@ -138,3 +138,14 @@ a.custom-card:hover {
 .dropdown-item{
   background: black;
 }
+
+#aumentar {
+  color: green;
+  font-size: 50px;
+  
+}
+
+#disminuir {
+  color: red;
+  font-size: 40px;
+}

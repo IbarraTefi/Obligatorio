@@ -8,6 +8,25 @@ let paymentTypeSelected = false;
 const CREDIT_CARD_PAYMENT = "Tarjeta de crédito";
 const BANKING_PAYMENT = "Transferencia bancaria";
 let ERROR_MSG = "Ha habido un error :(, verifica qué pasó.";
+var contador = 0;
+
+// Función para aumentar o disminuir cantidades
+function aumentarCantidad(){ 
+    contador = contador + 1; 
+    var cant = document.getElementById("articleCountInput"); 
+    cant.value = contador;
+    if(contador>=2){
+        alert("Hay 2 artículos disponibles");
+    }
+}
+
+function disminuirCantidad(){ 
+    if(contador>=2){
+        contador = contador - 1; 
+        var cant = document.getElementById("articleCountInput"); 
+        cant.value = contador;
+    }
+}
 
 //Función que se utiliza para actualizar los costos de publicación
 function updateTotalCosts(){
@@ -39,7 +58,7 @@ function showArticles(articles){
         let articulo = articles[i];
 
         htmlContentToAppend += `
-        <table border="1">
+        <table>
         <tbody>
         <tr>
         <td align="center">
@@ -56,18 +75,20 @@ function showArticles(articles){
         </td>
         </tr>
         <tr>
+        <hr class="mb-4">
         <td align="center">
-                <img src="` + articulo.src + `" alt="` + articulo.name + ` class="img-thumbnail" width="30%">
+            <img src="` + articulo.src + `" alt="` + articulo.name + ` class="img-thumbnail" width="30%">
         </td>
-        <td align="center">
-                        <h6 class="mb-1">` + articulo.name +`</h6>
+        <td align="center" width="40%">
+            <h6 class="mb-1">` + articulo.name +`</h6>
         </td>
         <td align="center">  
-                <h6 class="mb-1" id="stock">` + articulo.count + `</h6>
+            <h6 class="mb-1" id="stock">` + articulo.count + `</h6>
         </td>
-        <td align="center">
+        <td align="center" width="40%">
             <h6 class="mb-1" id="precio">` + articulo.unitCost + `</h6> 
         </td>
+        </tr>
         </tbody>
         </table>
         `
@@ -90,10 +111,15 @@ document.addEventListener("DOMContentLoaded", function(e){
         }
     });
 
-    document.getElementById("articleCountInput").addEventListener("change", function(){
-        productCount = this.value;
+    document.getElementById("aumentar").addEventListener("click", function(){
+        productCount = document.getElementById("articleCountInput").value;
         
         updateSubtotal();
     });
-
+    
+    document.getElementById("disminuir").addEventListener("click", function(){
+        productCount = document.getElementById("articleCountInput").value;
+        
+        updateSubtotal();
+    });
 });
