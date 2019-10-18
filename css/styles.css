@@ -142,10 +142,13 @@ a.custom-card:hover {
 #aumentar {
   color: green;
   font-size: 50px;
-  
+  line-height: 20px; /*ubicación vertical*/
+  height: 30px;
 }
 
 #disminuir {
   color: red;
-  font-size: 40px;
+  font-size: 50px;
+  line-height: 20px;
+  height: 30px;
 }

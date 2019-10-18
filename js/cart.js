@@ -15,8 +15,8 @@ function aumentarCantidad(){
     contador = contador + 1; 
     var cant = document.getElementById("articleCountInput"); 
     cant.value = contador;
-    if(contador>=2){
-        alert("Hay 2 artículos disponibles");
+    if(contador>=stock){
+        bootbox.alert("Hay 2 artículos disponibles",null);
     }
 }
 
@@ -105,6 +105,7 @@ document.addEventListener("DOMContentLoaded", function(e){
 
             infoArticle = resultObj.data.articles;
             productUnitCost = infoArticle[0].unitCost;
+            stock = infoArticle[0].count;
 
             showArticles(infoArticle);
 
