@@ -13,15 +13,15 @@ let contador = 1;
 // Función para aumentar o disminuir cantidades
 function aumentarCantidad(){ 
     contador = contador + 1; 
-    var cant = document.getElementById("articleCountInput"); 
-    cant.value = contador;
+    artBuy = document.getElementById("articleCountInput"); 
+    artBuy.value = contador;
 }
 
 function disminuirCantidad(){ 
     if(contador>=2){
         contador = contador - 1; 
-        var cant = document.getElementById("articleCountInput"); 
-        cant.value = contador;
+        artBuy = document.getElementById("articleCountInput"); 
+        artBuy.value = contador;
     }
 }
 
@@ -34,7 +34,7 @@ function updateSubtotal(){
 
 let subTotalHTML = document.getElementById("subTotal");
 
-let subTotalCostToShow = (productUnitCost * productCount);
+let subTotalCostToShow = productCurrency + (productUnitCost * productCount);
 
 subTotalHTML.innerHTML = subTotalCostToShow;
     
@@ -69,7 +69,7 @@ function showArticles(articles){
         <div class="row">
             <div class="col-6 col-md-4"><img src="` + articulo.src + `" alt="` + articulo.name + ` class="img-thumbnail" width="20%"></div>
             <div class="col-6 col-md-4">` + articulo.name +`</div>
-            <div class="col-6 col-md-4">` + articulo.unitCost + `</div>
+            <div class="col-6 col-md-4">` + articulo.currency + articulo.unitCost + `</div>
         </div>
     </div>
     <hr>
@@ -88,11 +88,13 @@ document.addEventListener("DOMContentLoaded", function(e){
             infoArticle = resultObj.data.articles;
             productUnitCost = infoArticle[0].unitCost;
             artBuy = infoArticle[0].count;
+            productCurrency = infoArticle[0].currency;
 
             showArticles(infoArticle);
 
         }
     });
+
 
     document.getElementById("aumentar").addEventListener("click", function(){
         productCount = document.getElementById("articleCountInput").value;

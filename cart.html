@@ -87,7 +87,7 @@
                   <div class="col-4">
                     <span class="input-group mb-3" align="center">
                       <button type="submit" class="btn" id="aumentar" onclick="aumentarCantidad()">+</button>
-                      <input type="text" style="text-align: center;" class="form-control" id="articleCountInput" placeholder="" required="" value="2" min="1">
+                      <input type="text" style="text-align: center;" class="form-control" id="articleCountInput" placeholder="" required="" min="1">
                       <button type="submit" class="btn" id="disminuir" onclick="disminuirCantidad()">-</button>
                     </span>
                   </div>
@@ -103,7 +103,7 @@
               <strong>Sub total</strong>
             </div>
             <div class="col-4">
-              <span class="text-muted" id="subTotal">-</span>
+            <span class="text-muted" id="subTotal">-</span>
             </div>
           </div>
         </div>
@@ -113,7 +113,7 @@
         <div class="container">
           <div class="row justify-content-end">
             <div class="col-4">
-              <strong>Porcentaje según<button type="button" class="m-1 btn btn-link" data-toggle="modal" data-target="#tipoEnvio">tipo de envío</button></strong>
+              <strong>Porcentaje según<button type="button" class="m-1 btn btn-link" data-toggle="modal" data-target="#conditions">tipo de envío</button></strong>
             </div>
             <div class="col-4">
               <span class="text-muted" id="comission">-</span>
@@ -136,7 +136,7 @@
       </div>
       <p>
           <div class="col-md-3 offset-md-7">
-              <button type="button" class="m-1 btn btn-link col align-self-center" data-toggle="modal" data-target="#conditionsModal">Forma de pago</button>
+              <button type="button" class="m-1 btn btn-link" data-toggle="modal" data-target="#conditionsModal">Forma de pago</button>
           </div>
       </div>
       </p>
@@ -179,7 +179,7 @@
         </div>
       </footer>
 
-      <div class="modal fade" tabindex="-1" role="dialog" id="tipoEnvio">
+      <div class="modal fade" tabindex="-1" role="dialog" id="conditions">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">

@@ -169,3 +169,11 @@ a.custom-card:hover {
   font-size: 18px;
   line-height: 50px;
 }
+
+#aumentar {
+  box-shadow: none;
+}
+
+#disminuir{
+  box-shadow: none;
+}
