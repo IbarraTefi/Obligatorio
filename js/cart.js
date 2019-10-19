@@ -8,16 +8,13 @@ let paymentTypeSelected = false;
 const CREDIT_CARD_PAYMENT = "Tarjeta de crédito";
 const BANKING_PAYMENT = "Transferencia bancaria";
 let ERROR_MSG = "Ha habido un error :(, verifica qué pasó.";
-var contador = 0;
+let contador = 1;
 
 // Función para aumentar o disminuir cantidades
 function aumentarCantidad(){ 
     contador = contador + 1; 
     var cant = document.getElementById("articleCountInput"); 
     cant.value = contador;
-    if(contador>=stock){
-        bootbox.alert("Hay 2 artículos disponibles",null);
-    }
 }
 
 function disminuirCantidad(){ 
@@ -58,39 +55,24 @@ function showArticles(articles){
         let articulo = articles[i];
 
         htmlContentToAppend += `
-        <table>
-        <tbody>
-        <tr>
-        <td align="center">
-        <h5> <strong>Producto<strong></h5>
-        </td>
-        <td align="center">
-        <h5><strong>Nombre<strong></h5>
-        </td>
-        <td align="center">
-        <h5><strong>Stock<strong></h5>
-        </td>
-        <td align="center">
-        <h5><strong>Precio unitario<strong></h5>
-        </td>
-        </tr>
-        <tr>
-        <hr class="mb-4">
-        <td align="center">
-            <img src="` + articulo.src + `" alt="` + articulo.name + ` class="img-thumbnail" width="30%">
-        </td>
-        <td align="center" width="40%">
-            <h6 class="mb-1">` + articulo.name +`</h6>
-        </td>
-        <td align="center">  
-            <h6 class="mb-1" id="stock">` + articulo.count + `</h6>
-        </td>
-        <td align="center" width="40%">
-            <h6 class="mb-1" id="precio">` + articulo.unitCost + `</h6> 
-        </td>
-        </tr>
-        </tbody>
-        </table>
+        
+        <hr>
+        <div class="container" id="vistaCarrito">
+            <div class="row">
+                <div class="col-6 col-md-4">Producto</div>
+                <div class="col-6 col-md-4">Nombre</div>
+                <div class="col-6 col-md-4">Precio unitario</div>
+            </div>
+        </div>
+        <hr>
+        <div class="container" id="datosCarrito">
+        <div class="row">
+            <div class="col-6 col-md-4"><img src="` + articulo.src + `" alt="` + articulo.name + ` class="img-thumbnail" width="20%"></div>
+            <div class="col-6 col-md-4">` + articulo.name +`</div>
+            <div class="col-6 col-md-4">` + articulo.unitCost + `</div>
+        </div>
+    </div>
+    <hr>
         `
     }
     document.getElementById("art-list-container").innerHTML = htmlContentToAppend;
@@ -105,7 +87,7 @@ document.addEventListener("DOMContentLoaded", function(e){
 
             infoArticle = resultObj.data.articles;
             productUnitCost = infoArticle[0].unitCost;
-            stock = infoArticle[0].count;
+            artBuy = infoArticle[0].count;
 
             showArticles(infoArticle);
 

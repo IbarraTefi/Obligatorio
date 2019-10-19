@@ -79,84 +79,97 @@
         <div id="art-list-container">
         </div>
       </p>
-    <div class="container">
-      <ul class="list-group list-group-flush">
-        <div class="col-md-4 ml-auto">
-        <li class="list-group-item">
-            <label><strong>Cantidad</strong></label> 
-            <span class="input-group mb-3" align="center">
-                <button type="submit" class="btn" id="aumentar" onclick="aumentarCantidad()">+</button>
-                <input type="text" style="text-align: center;" class="form-control" id="articleCountInput" placeholder="" required="" min="1">
-                <button type="submit" class="btn" id="disminuir" onclick="disminuirCantidad()">-</button>
-            </span>
-          </li>
-        </div>
-        <div class="col-md-4 ml-auto">
-          <li class="list-group-item"><strong>Sub total</strong>
-            <div align="center" width="50%">
-                <span class="text-muted" id="subTotal">-</span>
+      <div class="container">
+          <div class="row justify-content-end">
+              <div class="col-4">
+                  <strong>Cantidad</strong>
+                </div>
+                  <div class="col-4">
+                    <span class="input-group mb-3" align="center">
+                      <button type="submit" class="btn" id="aumentar" onclick="aumentarCantidad()">+</button>
+                      <input type="text" style="text-align: center;" class="form-control" id="articleCountInput" placeholder="" required="" value="2" min="1">
+                      <button type="submit" class="btn" id="disminuir" onclick="disminuirCantidad()">-</button>
+                    </span>
+                  </div>
+                </div>
+              </div>
+          </div>
+      </div>
+      <p>
+        <hr width="60%" align="right">
+        <div class="container">
+          <div class="row justify-content-end">
+            <div class="col-4">
+              <strong>Sub total</strong>
+            </div>
+            <div class="col-4">
+              <span class="text-muted" id="subTotal">-</span>
             </div>
           </div>
-          </li>
-        <div class="col-md-4 ml-auto">
-          <li class="list-group-item"><strong>Porcentaje según tipo de envío</strong>
-            <span class="text-muted" id="comission">-</span>
-          </li>
-          <li class="list-group-item"><strong>Total</strong>
-            <strong id="totalCost">-</strong>
-          </li>
         </div>
-        <div class="row">
-            <button type="button" class="m-1 btn btn-link" data-toggle="modal" data-target="#conditionsModal">Forma de pago</button>
-          </div>
-      </ul>
-        <hr class="mb-4">
-      </div>
-        <hr class="mb-4">
-        <div class="col-md-4 ml-auto">
-        <h5 class="mb-3">Tipo de envío</h5>
-        </div>
-        <div class="d-block my-3">
-          <div class="custom-control custom-radio">
-            <input id="premiumradio" name="envioType" type="radio" class="custom-control-input" checked="" required="">
-            <label class="custom-control-label" for="premiumradio">Premium (15%)</label>
-          </div>
-          <div class="custom-control custom-radio">
-            <input id="expresradio" name="envioType" type="radio" class="custom-control-input" required="">
-            <label class="custom-control-label" for="expresradio">Express (7%)</label>
-          </div>
-          <div class="custom-control custom-radio">
-            <input id="standardradio" name="envioType" type="radio" class="custom-control-input" required="">
-            <label class="custom-control-label" for="standardradio">Estándar (5%)</label>
-          </div>
-        </div>
-          <div class="row">
-            <button type="button" class="m-1 btn btn-link" data-toggle="modal" data-target="#conditions">Ver condiciones</button>
-          </div>
-        </div>
-      </div>
-      <hr class="mb-4">
-      <div class="row">
-        <div class="col-md-3 mb-3">
-          <h5>Dirección de envío</h5>
-          <div class="input-group">
-            <div class="input-group-prepend">
-              <span class="input-group-text">Calle y número de puerta</span>
-            </div>
-            <input type="text" aria-label="First name" class="form-control">
-            <input type="text" aria-label="Last name" class="form-control">
-          </div>
-          <p><input type="text" class="form-control" placeholder="Calle" required="">
-          <input type="number" class="form-control" placeholder="Número de puerta" required=""></p>
-          <p><input type="number" class="form-control" placeholder="Apto."></p>
-          <p><input type="text" class="form-control" placeholder="Esq." required=""></p>
-          <p><input type="text" class="form-control" placeholder="Departamento" required=""></p>
-          <p><input type="text" class="form-control" placeholder="País" required=""></p>
-        </div>
+      </p>
+      <hr width="60%" align="right">
         <p>
-        <button class="btn btn-primary btn-lg" type="submit">Comprar</button>
+        <div class="container">
+          <div class="row justify-content-end">
+            <div class="col-4">
+              <strong>Porcentaje según<button type="button" class="m-1 btn btn-link" data-toggle="modal" data-target="#tipoEnvio">tipo de envío</button></strong>
+            </div>
+            <div class="col-4">
+              <span class="text-muted" id="comission">-</span>
+            </div>
+          </div>
+        </div>
+      </p>
+      <hr width="60%" align="right">
+        <p>
+          <div class="container">
+            <div class="row justify-content-end">
+              <div class="col-4">
+                <strong>Total</strong>
+              </div>
+            <div class="col-4">
+              <strong id="totalCost">-</strong>
+          </div>
         </p>
-    </div>
+        <hr width="60%" align="right">
+      </div>
+      <p>
+          <div class="col-md-3 offset-md-7">
+              <button type="button" class="m-1 btn btn-link col align-self-center" data-toggle="modal" data-target="#conditionsModal">Forma de pago</button>
+          </div>
+      </div>
+      </p>
+      <hr class="mb-4">
+      <div class="container">
+          <p><h5 align="center">Dirección de envío</h5></p>
+          <div class="row justify-content-around">
+              <div class="col-4">
+                  <input type="text" class="form-control" placeholder="Calle" required="">
+              </div>
+              <div class="col-4">
+                  <input type="number" class="form-control" placeholder="Número de puerta" required="">
+              </div>
+            </div>
+      </div>
+      <div class="container">
+          <div class="row justify-content-around">
+              <div class="col-4">
+                  <input type="text" class="form-control" placeholder="Esq." required="">
+              </div>
+              <div class="col-4">
+                  <input type="text" class="form-control" placeholder="País" required="">
+              </div>
+            </div>
+      </div>
+      <p>
+        <div class="container">
+          <div class="row">
+        <button class="btn btn-primary btn-lg col align-self-center" type="submit">Comprar</button>
+            </div>
+          </div>
+        </div>
+      </p>
     
 
       <footer class="text-muted">
@@ -166,33 +179,36 @@
         </div>
       </footer>
 
-      <div class="modal fade" tabindex="-1" role="dialog" id="conditions">
+      <div class="modal fade" tabindex="-1" role="dialog" id="tipoEnvio">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title">Condiciones de envío</h5>
+                  <h5 class="modal-title">Tipo de envío</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                <div class="container">
-                    <div class="row">
-                        <h5 class="text-warning">Premium (15%)</h5>
-                        <p class="muted text-justify">EL producto llegará de 2 a 5 días después de realizada la compra. El costo será del 15% sobre el subtotal.</p>
-                    </div>
-                    <hr>
-                    <div class="row">
-                        <h5 class="text-primary">Express (7%)</h5>
-                        <p class="muted text-justify">El producto llegará de 5 a 8 días después de realizada la compra. El costo será del 7% sobre el subtotal.</p>
-                    </div>
-                    <hr>
-                    <div class="row">
-                        <h5 class="text-secondary">Estándar (5%)</h5>
-                        <p class="muted text-justify">El producto llegará de 12 a 15 días después de realizada la compra. El costo será del 5% sobre el subtotal.</p>
-                    </div>
+                    <span aria-hidden="true">&times;</span>
+                  </button>
                 </div>
-              </div>
+                <div class="modal-body">
+                    <div class="container">
+                <div class="d-block my-3">
+                  <div class="custom-control custom-radio">
+                    <input id="premiumradio" name="envioType" type="radio" class="custom-control-input" checked="" required="">
+                    <label class="custom-control-label text-warning" for="premiumradio">Premium: </label>
+                    <p>EL producto llegará de 2 a 5 días después de realizada la compra. El costo será del 15% sobre el subtotal.</p>
+                  </div>
+                  <hr>
+                  <div class="custom-control custom-radio">
+                    <input id="expresradio" name="envioType" type="radio" class="custom-control-input" required="">
+                    <label class="custom-control-label text-primary" for="expresradio">Express: </label>
+                  <p>El producto llegará de 5 a 8 días después de realizada la compra. El costo será del 7% sobre el subtotal.</p>
+                  </div>
+                  <hr>
+                  <div class="custom-control custom-radio">
+                    <input id="standardradio" name="envioType" type="radio" class="custom-control-input" required="">
+                    <label class="custom-control-label text-secondary" for="standardradio">Estándar: </label>
+                  <p>El producto llegará de 12 a 15 días después de realizada la compra. El costo será del 5% sobre el subtotal.</p>
+                  </div>
+                </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
               </div>
