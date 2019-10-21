@@ -41,20 +41,22 @@ function showProductsList(){
             ((maxCost == undefined) || (maxCost != undefined && parseInt(product.cost) <= maxCost))){
 
             htmlContentToAppend += `
-            <a href="product-info.html" class="list-group-item list-group-item-action">
-                <div class="row">
-                    <div class="col-3">
-                        <img src="` + product.imgSrc + `" alt="` + product.description + `" class="img-thumbnail">
-                    </div>
-                    <div class="col">
-                        <div class="d-flex w-100 justify-content-between">
-                            <h4 class="mb-1">`+ product.name +`</h4>
-                         <small class="text-muted">` + product.currency + product.cost +`</small>
-                        </div>
-                        <p class="mb-1">` + product.description + `</p>
-                    </div>
-                </div>
-            </a>
+        
+      
+        <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+          <a href="product-info.html">
+          <img src="` + product.imgSrc + `" alt="` + product.description + `" class="bd-placeholder-img card-img-top" width="100%" height="225" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/>
+            <div class="card-body">
+              <p class="card-text" align="center">`+ product.name +`</p></a>
+              <hr>
+              <p class="card-text">` + product.description + `</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <span align="center"> Precio: ` + product.currency + product.cost +`</span>
+              </div>
+            </div>
+            </div>
+        </div>   
             `
         }
 

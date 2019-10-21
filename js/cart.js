@@ -8,22 +8,6 @@ let paymentTypeSelected = false;
 const CREDIT_CARD_PAYMENT = "Tarjeta de crédito";
 const BANKING_PAYMENT = "Transferencia bancaria";
 let ERROR_MSG = "Ha habido un error :(, verifica qué pasó.";
-let contador = 1;
-
-// Función para aumentar o disminuir cantidades
-function aumentarCantidad(){ 
-    contador = contador + 1; 
-    artBuy = document.getElementById("articleCountInput"); 
-    artBuy.value = contador;
-}
-
-function disminuirCantidad(){ 
-    if(contador>=2){
-        contador = contador - 1; 
-        artBuy = document.getElementById("articleCountInput"); 
-        artBuy.value = contador;
-    }
-}
 
 //Función que se utiliza para actualizar los costos de publicación
 function updateTotalCosts(){
@@ -34,7 +18,7 @@ function updateSubtotal(){
 
 let subTotalHTML = document.getElementById("subTotal");
 
-let subTotalCostToShow = productCurrency + (productUnitCost * productCount);
+let subTotalCostToShow = productCurrency + (productUnitCost * artBuy);
 
 subTotalHTML.innerHTML = subTotalCostToShow;
     
@@ -57,19 +41,19 @@ function showArticles(articles){
         htmlContentToAppend += `
         
         <hr>
-        <div class="container" id="vistaCarrito">
-            <div class="row">
-                <div class="col-6 col-md-4">Producto</div>
-                <div class="col-6 col-md-4">Nombre</div>
-                <div class="col-6 col-md-4">Precio unitario</div>
+        <div class="container">
+            <div class="row" id"vistaCarrito">
+                <div class="col-sm"><h4>Producto</h4></div>
+                <div class="col-sm"><h4>Nombre</h4></div>
+                <div class="col-sm"><h4>Precio unitario</h4></div>
             </div>
         </div>
         <hr>
-        <div class="container" id="datosCarrito">
-        <div class="row">
-            <div class="col-6 col-md-4"><img src="` + articulo.src + `" alt="` + articulo.name + ` class="img-thumbnail" width="20%"></div>
-            <div class="col-6 col-md-4">` + articulo.name +`</div>
-            <div class="col-6 col-md-4">` + articulo.currency + articulo.unitCost + `</div>
+        <div class="container">
+        <div class="row" id="datosCarrito">
+            <div class="col-sm"><img src="` + articulo.src + `" alt="` + articulo.name + ` class="img-thumbnail" width="20%"></div>
+            <div class="col-sm">` + articulo.name +`</div>
+            <div class="col-sm">` + articulo.currency + articulo.unitCost + `</div>
         </div>
     </div>
     <hr>
@@ -87,23 +71,24 @@ document.addEventListener("DOMContentLoaded", function(e){
 
             infoArticle = resultObj.data.articles;
             productUnitCost = infoArticle[0].unitCost;
-            artBuy = infoArticle[0].count;
             productCurrency = infoArticle[0].currency;
 
+            
+
             showArticles(infoArticle);
+            
+            let artBuy = document.getElementById("articleCountInput");
+            artBuy.value = infoArticle[0].count;
+            let subTotalHTML = document.getElementById("subTotal");
+            subTotalHTML.innerHTML = productCurrency + (productUnitCost * artBuy.value);
 
         }
-    });
-
-
-    document.getElementById("aumentar").addEventListener("click", function(){
-        productCount = document.getElementById("articleCountInput").value;
         
-        updateSubtotal();
     });
-    
-    document.getElementById("disminuir").addEventListener("click", function(){
-        productCount = document.getElementById("articleCountInput").value;
+
+
+    document.getElementById("articleCountInput").addEventListener("click", function(){
+        artBuy = this.value;
         
         updateSubtotal();
     });

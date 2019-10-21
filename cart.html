@@ -81,14 +81,12 @@
       </p>
       <div class="container">
           <div class="row justify-content-end">
-              <div class="col-4">
+              <div class="col-sm-4">
                   <strong>Cantidad</strong>
                 </div>
-                  <div class="col-4">
+                  <div class="col-sm-4">
                     <span class="input-group mb-3" align="center">
-                      <button type="submit" class="btn" id="aumentar" onclick="aumentarCantidad()">+</button>
-                      <input type="text" style="text-align: center;" class="form-control" id="articleCountInput" placeholder="" required="" min="1">
-                      <button type="submit" class="btn" id="disminuir" onclick="disminuirCantidad()">-</button>
+                      <input type="number" style="text-align: center;" class="form-control" id="articleCountInput" placeholder="" required="" min="1">
                     </span>
                   </div>
                 </div>
@@ -99,11 +97,11 @@
         <hr width="60%" align="right">
         <div class="container">
           <div class="row justify-content-end">
-            <div class="col-4">
+            <div class="col-sm-4">
               <strong>Sub total</strong>
             </div>
-            <div class="col-4">
-            <span class="text-muted" id="subTotal">-</span>
+            <div class="col-sm-4">
+            <span id="subTotal">-</span>
             </div>
           </div>
         </div>
@@ -112,10 +110,10 @@
         <p>
         <div class="container">
           <div class="row justify-content-end">
-            <div class="col-4">
+            <div class="col-sm-4">
               <strong>Porcentaje según<button type="button" class="m-1 btn btn-link" data-toggle="modal" data-target="#conditions">tipo de envío</button></strong>
             </div>
-            <div class="col-4">
+            <div class="col-sm-4">
               <span class="text-muted" id="comission">-</span>
             </div>
           </div>
@@ -125,10 +123,10 @@
         <p>
           <div class="container">
             <div class="row justify-content-end">
-              <div class="col-4">
+              <div class="col-sm-4">
                 <strong>Total</strong>
               </div>
-            <div class="col-4">
+            <div class="col-sm-4">
               <strong id="totalCost">-</strong>
           </div>
         </p>

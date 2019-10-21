@@ -159,21 +159,13 @@ a.custom-card:hover {
 }
 
 #datosCarrito {
-  text-align: center;
+  align-content: center;
   font-size: 18px;
   line-height: 50px;
 }
 
-.col-4{
-  text-align: center;
+.col-sm-4{
   font-size: 18px;
   line-height: 50px;
 }
 
-#aumentar {
-  box-shadow: none;
-}
-
-#disminuir{
-  box-shadow: none;
-}
