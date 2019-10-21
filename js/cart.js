@@ -87,7 +87,7 @@ document.addEventListener("DOMContentLoaded", function(e){
     });
 
 
-    document.getElementById("articleCountInput").addEventListener("click", function(){
+    document.getElementById("articleCountInput").addEventListener("change", function(){
         artBuy = this.value;
         
         updateSubtotal();
