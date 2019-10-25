@@ -9,19 +9,22 @@ const CREDIT_CARD_PAYMENT = "Tarjeta de crédito";
 const BANKING_PAYMENT = "Transferencia bancaria";
 let ERROR_MSG = "Ha habido un error :(, verifica qué pasó.";
 
-//Función que se utiliza para actualizar los costos de publicación
-function updateTotalCosts(){
-    
-}
 
-function updateSubtotal(){
+// Función para calcular los costos.
+function updateCost(){
 
 let subTotalHTML = document.getElementById("subTotal");
+let comissionCostHTML = document.getElementById("comission");
+let totalCostHTML = document.getElementById("totalCost");
 
-let subTotalCostToShow = productCurrency + (productUnitCost * artBuy);
+subtotal = productUnitCost * artBuy;
+let comissionToShow = Math.round((shippingPercentage * subtotal));
+total = subtotal + comissionToShow;
 
-subTotalHTML.innerHTML = subTotalCostToShow;
-    
+subTotalHTML.innerHTML = productCurrency + subtotal;
+comissionCostHTML.innerHTML = productCurrency + comissionToShow;
+totalCostHTML.innerHTML = productCurrency + total;
+
 }
 
 function showPaymentTypeNotSelected(){
@@ -81,6 +84,10 @@ document.addEventListener("DOMContentLoaded", function(e){
             artBuy.value = infoArticle[0].count;
             let subTotalHTML = document.getElementById("subTotal");
             subTotalHTML.innerHTML = productCurrency + (productUnitCost * artBuy.value);
+            let comissionCostHTML = document.getElementById("comission");
+            comissionCostHTML.innerHTML = productCurrency + (shippingPercentage * productUnitCost * artBuy.value);
+            let totalCostHTML = document.getElementById("totalCost");
+            totalCostHTML.innerHTML = productCurrency + ((productUnitCost * artBuy.value) + (shippingPercentage * productUnitCost * artBuy.value));
 
         }
         
@@ -90,6 +97,22 @@ document.addEventListener("DOMContentLoaded", function(e){
     document.getElementById("articleCountInput").addEventListener("change", function(){
         artBuy = this.value;
         
-        updateSubtotal();
+        updateCost();
+    });
+
+
+    document.getElementById("premiumradio").addEventListener("change", function(){
+        shippingPercentage = 0.15;
+        updateCost();
+    });
+    
+    document.getElementById("expresradio").addEventListener("change", function(){
+        shippingPercentage = 0.07;
+        updateCost();
+    });
+
+    document.getElementById("standardradio").addEventListener("change", function(){
+        shippingPercentage = 0.05;
+        updateCost();
     });
 });
