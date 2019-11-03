@@ -132,11 +132,13 @@
         </p>
         <hr width="60%" align="right">
       </div>
-      <p>
-          <div class="col-md-3 offset-md-7">
-              <button type="button" class="m-1 btn btn-link" data-toggle="modal" data-target="#conditionsModal">Forma de pago</button>
-          </div>
-      </p>
+
+      <button class="btn btn-secondary" id="abrirFormaPago">
+        Forma de pago
+      </button>
+      <small id="avisoFormaPago"></small>
+
+      
       <hr class="mb-4">
       <div class="container">
           <p><h5 align="center">Dirección de envío</h5></p>
@@ -168,6 +170,64 @@
         </div>
       </p>
     
+      <div class="overlay" id="overlay">
+        <div class="popup" id="formaPago">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="cerrarFormaPago">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              
+              <div class="row">
+                  <div class="custom-control custom-radio">
+                    <input id="creditCardPaymentRadio" name="paymentType" type="radio" class="custom-control-input">
+                    <label class="custom-control-label" for="creditCardPaymentRadio"><h4>Tarjeta de crédito</h4></label>
+                  </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                      <label for="shippingStreet">Número de tarjeta</label>
+                      <input type="text" class="form-control" id="creditCardNumber" placeholder="" value="" >
+                      <div class="invalid-feedback">
+                        Ingresa un número de tarjeta
+                      </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                      <label for="shippingStreetNumber">Código de seg.</label>
+                      <input type="number" class="form-control" id="creditCardSecurityCode" placeholder="" value="" >
+                      <div class="invalid-feedback">
+                        Ingresa el código de seguridad
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-md-6 mb-3">
+                        <label for="dueDate">Vencimiento (MM/AA)</label>
+                        <input type="text" class="form-control" id="dueDate" placeholder="" value="" >
+                        <div class="invalid-feedback">
+                          Ingresa la fecha de vencimiento
+                        </div>
+                      </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="custom-control custom-radio">
+                      <input id="bankingRadio" name="paymentType" type="radio" class="custom-control-input">
+                      <label class="custom-control-label" for="bankingRadio"><h4>Transferencia Bancaria</h4></label>
+                    </div>
+                  </div>
+                  <br>
+                  <div class="row">
+                    <div class="col-md-6 mb-3">
+                      <label for="bankAccountNumber">Número de cuenta</label>
+                      <input type="text" class="form-control" id="bankAccountNumber" placeholder="" value="" >
+                      <div class="invalid-feedback">
+                        Ingresa un número de cuenta
+                      </div>
+                    </div>
+                  </div>
+                  <button type="submit" class="btn btn-primary">Aceptar</button>
+              </div>
+            </div>
 
       <footer class="text-muted">
         <div class="container">
@@ -213,78 +273,13 @@
           </div>
         </div>
 
-      <div class="modal fade" tabindex="-1" role="dialog" id="conditionsModal">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title">Forma de pago</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <div class="container">
-                  <div class="row">
-                    <div class="custom-control custom-radio">
-                      <input id="creditCardPaymentRadio" name="paymentType" type="radio" class="custom-control-input">
-                      <label class="custom-control-label" for="creditCardPaymentRadio">Tarjeta de crédito</label>
-                    </div>
-                  </div>
-                  <hr>
-                  <div class="row">
-                    <div class="col-md-6 mb-3">
-                      <label for="shippingStreet">Número de tarjeta</label>
-                      <input type="text" class="form-control" id="creditCardNumber" placeholder="" value="" >
-                      <div class="invalid-feedback">
-                        Ingresa un número de tarjeta
-                      </div>
-                    </div>
-                    <div class="col-md-4 mb-3">
-                      <label for="shippingStreetNumber">Código de seg.</label>
-                      <input type="number" class="form-control" id="creditCardSecurityCode" placeholder="" value="" >
-                      <div class="invalid-feedback">
-                        Ingresa el código de seguridad
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                      <div class="col-md-6 mb-3">
-                        <label for="dueDate">Vencimiento (MM/AA)</label>
-                        <input type="text" class="form-control" id="dueDate" placeholder="" value="" >
-                        <div class="invalid-feedback">
-                          Ingresa la fecha de vencimiento
-                        </div>
-                      </div>
-                  </div>
-                  <div class="row">
-                    <div class="custom-control custom-radio">
-                      <input id="bankingRadio" name="paymentType" type="radio" class="custom-control-input">
-                      <label class="custom-control-label" for="bankingRadio">Transferencia bancaria</label>
-                    </div>
-                  </div>
-                  <hr>
-                  <div class="row">
-                    <div class="col-md-6 mb-3">
-                      <label for="bankAccountNumber">Número de cuenta</label>
-                      <input type="text" class="form-control" id="bankAccountNumber" placeholder="" value="" >
-                      <div class="invalid-feedback">
-                        Ingresa un número de cuenta
-                      </div>
-                    </div>
-              </div>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
-            </div>
-          </div>
-        </div>
-      </div>
       <div id="spinner-wrapper"><div class="lds-ring"><div></div><div></div><div></div><div></div></div></div>
       <script src="js/vendor/jquery-3.4.1.min.js"></script>
       <script src="js/vendor/bootstrap.bundle.min.js"></script>
       <script src="js/vendor/bootbox.min.js"></script>
       <script src="js/init.js"></script>
       <script src="js/cart.js"></script>
+      <script src="js/popup.js"></script>
       <script src="js/registro.js"></script>
     </body>
 </html>

@@ -7,6 +7,7 @@ let total = 0;
 let paymentTypeSelected = false;
 const CREDIT_CARD_PAYMENT = "Tarjeta de crédito";
 const BANKING_PAYMENT = "Transferencia bancaria";
+const SINFP = "No se seleccionó ninguna forma de pago";
 let ERROR_MSG = "Ha habido un error :(, verifica qué pasó.";
 
 
@@ -32,7 +33,6 @@ function showPaymentTypeNotSelected(){
 }
 
 function hidePaymentTypeNotSelected(){
-
 }
 
 function showArticles(articles){
@@ -115,4 +115,13 @@ document.addEventListener("DOMContentLoaded", function(e){
         shippingPercentage = 0.05;
         updateCost();
     });
+
+    document.getElementById("bankingRadio").addEventListener("click",function(){
+        paymentTypeSelected = BANKING_PAYMENT;
+    });
+
+    document.getElementById("creditCardPaymentRadio").addEventListener("click",function(){
+        paymentTypeSelected = CREDIT_CARD_PAYMENT;
+    })
+
 });

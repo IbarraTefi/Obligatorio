@@ -169,3 +169,42 @@ a.custom-card:hover {
   line-height: 50px;
 }
 
+.overlay{
+  background: rgba(0,0,0,.3);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center; /*alinea elementos de forma vertical*/
+  justify-content: center; /*alinea elementos de forma horizontal*/
+  visibility: hidden;
+}
+
+.overlay.active {
+  visibility: visible;
+}
+
+.popup {
+  background: #f8f8f8;
+  box-shadow: 0px,0px,5px,0px rgba(0,0,0,.3);
+  border-radius: 3px;
+  padding: 20px;
+  text-align: center;
+  width: 600px;
+  transition: .3s ease all; /*es para darle una transisión a la animación*/
+  transform: scale(0.7); /*animación para que aparezca gradualmente*/
+}
+
+.popup .close:hover {
+color: #000; /*cuando el cursor pase por arriba la x queda negra*/
+}
+
+.popup .btn .btn-primary:hover {
+  background: rgba(94,125,227,.9); /*cuando el curson pase por arriba del botón queda más azul*/
+}
+
+.popup.active{
+  transform: scale(1);
+}
