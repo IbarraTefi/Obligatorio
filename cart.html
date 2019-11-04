@@ -133,15 +133,18 @@
         <hr width="60%" align="right">
       </div>
 
-      <button class="btn btn-secondary" id="abrirFormaPago">
-        Forma de pago
-      </button>
-      <small id="avisoFormaPago"></small>
-
-      
-      <hr class="mb-4">
-      <div class="container">
-          <p><h5 align="center">Dirección de envío</h5></p>
+      <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Dirección de envío</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Forma de pago</a>
+        </li>
+      </ul>
+      <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+          <br>
+          <div class="container">
           <div class="row justify-content-around">
               <div class="col-4">
                   <input type="text" class="form-control" placeholder="Calle" required="">
@@ -161,10 +164,65 @@
               </div>
             </div>
       </div>
+        </div>
+        <br>
+        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+          <div class="row">
+            <div class="custom-control custom-radio">
+              <input id="creditCardPaymentRadio" name="paymentType" type="radio" class="custom-control-input">
+              <label class="custom-control-label" for="creditCardPaymentRadio"><h4>Tarjeta de crédito</h4></label>
+            </div>
+          </div>
+          <br>
+          <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="shippingStreet">Número de tarjeta</label>
+                <input type="number" class="form-control" id="creditCardNumber" placeholder="" value="" onclick="validarTarjeta();">
+                <div class="invalid-feedback">
+                  Ingresa un número de tarjeta
+                </div>
+              </div>
+              <div class="col-md-4 mb-3">
+                <label for="shippingStreetNumber">Código de seg.</label>
+                <input type="number" class="form-control" id="creditCardSecurityCode" placeholder="" value="" required>
+                <div class="invalid-feedback">
+                  Ingresa el código de seguridad
+                </div>
+              </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label for="dueDate">Vencimiento (MM/AA)</label>
+                  <input type="text" class="form-control" id="dueDate" placeholder="" value="" >
+                  <div class="invalid-feedback">
+                    Ingresa la fecha de vencimiento
+                  </div>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="custom-control custom-radio">
+                <input id="bankingRadio" name="paymentType" type="radio" class="custom-control-input">
+                <label class="custom-control-label" for="bankingRadio"><h4>Transferencia Bancaria</h4></label>
+              </div>
+            </div>
+            <br>
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="bankAccountNumber">Número de cuenta</label>
+                <input type="text" class="form-control" id="bankAccountNumber" placeholder="" value="" >
+                <div class="invalid-feedback">
+                  Ingresa un número de cuenta
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+      
       <p>
         <div class="container">
           <div class="row">
-        <button class="btn btn-primary btn-lg col align-self-center" type="submit">Comprar</button>
+        <button class="btn btn-primary btn-lg col align-self-center" type="submit" id="abrirFormaPago">Comprar</button>
             </div>
           </div>
         </div>
@@ -177,54 +235,8 @@
               </button>
               
               <div class="row">
-                  <div class="custom-control custom-radio">
-                    <input id="creditCardPaymentRadio" name="paymentType" type="radio" class="custom-control-input">
-                    <label class="custom-control-label" for="creditCardPaymentRadio"><h4>Tarjeta de crédito</h4></label>
-                  </div>
+                  <p><h4>Confirma el pago de: </h4> <h4 id="aPagar"></h4></p>
                 </div>
-                <br>
-                <div class="row">
-                    <div class="col-md-6 mb-3">
-                      <label for="shippingStreet">Número de tarjeta</label>
-                      <input type="text" class="form-control" id="creditCardNumber" placeholder="" value="" >
-                      <div class="invalid-feedback">
-                        Ingresa un número de tarjeta
-                      </div>
-                    </div>
-                    <div class="col-md-4 mb-3">
-                      <label for="shippingStreetNumber">Código de seg.</label>
-                      <input type="number" class="form-control" id="creditCardSecurityCode" placeholder="" value="" >
-                      <div class="invalid-feedback">
-                        Ingresa el código de seguridad
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                      <div class="col-md-6 mb-3">
-                        <label for="dueDate">Vencimiento (MM/AA)</label>
-                        <input type="text" class="form-control" id="dueDate" placeholder="" value="" >
-                        <div class="invalid-feedback">
-                          Ingresa la fecha de vencimiento
-                        </div>
-                      </div>
-                  </div>
-                  <hr>
-                  <div class="row">
-                    <div class="custom-control custom-radio">
-                      <input id="bankingRadio" name="paymentType" type="radio" class="custom-control-input">
-                      <label class="custom-control-label" for="bankingRadio"><h4>Transferencia Bancaria</h4></label>
-                    </div>
-                  </div>
-                  <br>
-                  <div class="row">
-                    <div class="col-md-6 mb-3">
-                      <label for="bankAccountNumber">Número de cuenta</label>
-                      <input type="text" class="form-control" id="bankAccountNumber" placeholder="" value="" >
-                      <div class="invalid-feedback">
-                        Ingresa un número de cuenta
-                      </div>
-                    </div>
-                  </div>
                   <button type="submit" class="btn btn-primary">Aceptar</button>
               </div>
             </div>

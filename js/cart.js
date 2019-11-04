@@ -17,6 +17,7 @@ function updateCost(){
 let subTotalHTML = document.getElementById("subTotal");
 let comissionCostHTML = document.getElementById("comission");
 let totalCostHTML = document.getElementById("totalCost");
+let aPagarHTML = document.getElementById("aPagar");
 
 subtotal = productUnitCost * artBuy;
 let comissionToShow = Math.round((shippingPercentage * subtotal));
@@ -25,6 +26,7 @@ total = subtotal + comissionToShow;
 subTotalHTML.innerHTML = productCurrency + subtotal;
 comissionCostHTML.innerHTML = productCurrency + comissionToShow;
 totalCostHTML.innerHTML = productCurrency + total;
+aPagarHTML.innerHTML = productCurrency + total;
 
 }
 
@@ -117,11 +119,17 @@ document.addEventListener("DOMContentLoaded", function(e){
     });
 
     document.getElementById("bankingRadio").addEventListener("click",function(){
-        paymentTypeSelected = BANKING_PAYMENT;
+        document.getElementById("bankAccountNumber").removeAttribute("disabled");
+        document.getElementById("creditCardNumber").setAttribute("disabled","disabled");
+        document.getElementById("creditCardSecurityCode").setAttribute("disabled","disabled");
+        document.getElementById("dueDate").setAttribute("disabled","disabled");
     });
 
     document.getElementById("creditCardPaymentRadio").addEventListener("click",function(){
-        paymentTypeSelected = CREDIT_CARD_PAYMENT;
+        document.getElementById("bankAccountNumber").setAttribute("disabled","disabled");
+        document.getElementById("creditCardNumber").removeAttribute("disabled");
+        document.getElementById("creditCardSecurityCode").removeAttribute("disabled");
+        document.getElementById("dueDate").removeAttribute("disabled");
     })
 
 });
