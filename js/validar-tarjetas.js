@@ -7,28 +7,44 @@ var reglaVisa = "4(?:[0-9]{12}|[0-9]{15})"
 // MasterCard
 var reglaMasterCard = "5[1-5][0-9]{14}"
 
+// American Express
+var reglaAmExpress = "3[47][0-9]{13}"
+
 
 document.getElementById("creditCardNumber").addEventListener("change",function(){
     numTarjeta = this.value;
-    if(numTarjeta.length === 16 && numTarjeta[0] === 4 && (numTarjeta[1] === 0 || numTarjeta[1] === 1 || numTarjeta[1] === 2 || numTarjeta[1] === 3 || numTarjeta[1] === 4 || numTarjeta[1] === 5)){
+    // if(numTarjeta.length === 16 && numTarjeta[0] === "4"){
+        // alert("Tarjeta Visa");
+    // }
+    // if(numTarjeta.length === 16 && numTarjeta[0] === "5" && (numTarjeta[1] === "0" || numTarjeta[1] === "1" || numTarjeta[1] === "2" || numTarjeta[1] === "3" || numTarjeta[1] === "4" || numTarjeta[1] === "5")){
+        // alert("Tarjeta Master Card")
+    // }
+    // else{
+        // alert("No trabajamos con esta tarjeta")
+    // }
+    if(numTarjeta.match(reglaVisa)){
         alert("Tarjeta Visa");
     }
-    if(numTarjeta = reglaMasterCard){
-        alert("Tarjeta Master Card")
+    else if(numTarjeta.match(reglaMasterCard)){
+        alert("Tarjeta MasterCard");
+    }
+    else if (numTarjeta.match(reglaAmExpress)){
+        alert("Tarjeta American Express");
     }
     else{
-        alert("No trabajamos con esta tarjeta")
+        alert("No trabajamos con esta tarjeta");
     }
+  
 });
+// });
 
-document.getElementById("dueDate").addEventListener("change",function(){
-    var vencimiento = this.value;
-    validarFecha();
-});
+// document.getElementById("dueDate").addEventListener("change",function(){
+    // var vencimiento = this.value;
+    // validarFecha();
+// });
 
-    function validarFecha(){ 
+    // function validarFecha(){ 
 
-        if(Date.parse(vencimiento)< hoy){	
-         alert("La fecha ingresada es incorrecta"); 
-        } 
-    };
+        // if(Date.parse(vencimiento)< hoy){	
+        //  alert("La fecha ingresada es incorrecta"); 
+        // } 

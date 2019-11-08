@@ -9,7 +9,7 @@ const CREDIT_CARD_PAYMENT = "Tarjeta de crédito";
 const BANKING_PAYMENT = "Transferencia bancaria";
 const SINFP = "No se seleccionó ninguna forma de pago";
 let ERROR_MSG = "Ha habido un error :(, verifica qué pasó.";
-
+let artBuy = 0;
 
 // Función para calcular los costos.
 function updateCost(){
@@ -78,19 +78,18 @@ document.addEventListener("DOMContentLoaded", function(e){
             productUnitCost = infoArticle[0].unitCost;
             productCurrency = infoArticle[0].currency;
 
-            
-
             showArticles(infoArticle);
             
-            let artBuy = document.getElementById("articleCountInput");
-            artBuy.value = infoArticle[0].count;
+            artBuy = infoArticle[0].count;
             let subTotalHTML = document.getElementById("subTotal");
-            subTotalHTML.innerHTML = productCurrency + (productUnitCost * artBuy.value);
+            subTotalHTML.innerHTML = productCurrency + (productUnitCost * artBuy);
             let comissionCostHTML = document.getElementById("comission");
-            comissionCostHTML.innerHTML = productCurrency + (shippingPercentage * productUnitCost * artBuy.value);
+            comissionCostHTML.innerHTML = productCurrency + (shippingPercentage * productUnitCost * artBuy);
             let totalCostHTML = document.getElementById("totalCost");
-            totalCostHTML.innerHTML = productCurrency + ((productUnitCost * artBuy.value) + (shippingPercentage * productUnitCost * artBuy.value));
+            totalCostHTML.innerHTML = productCurrency + ((productUnitCost * artBuy) + (shippingPercentage * productUnitCost * artBuy));
 
+            let articleCountHTML = document.getElementById("articleCountInput");
+            articleCountHTML.value = artBuy;
         }
         
     });
