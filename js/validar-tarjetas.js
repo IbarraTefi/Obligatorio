@@ -2,13 +2,11 @@
 var hoy = new Date();
 
 // Visa
-var reglaVisa = "4(?:[0-9]{12}|[0-9]{15})"
+var reglaVisa = "^4[0-9]{6,}$"
 
 // MasterCard
-var reglaMasterCard = "5[1-5][0-9]{14}"
+var reglaMasterCard = "5[1-5][0-9]{14}$"
 
-// American Express
-var reglaAmExpress = "3[47][0-9]{13}"
 
 
 document.getElementById("creditCardNumber").addEventListener("change",function(){
@@ -22,16 +20,11 @@ document.getElementById("creditCardNumber").addEventListener("change",function()
     // else{
         // alert("No trabajamos con esta tarjeta")
     // }
-    if(numTarjeta.match(reglaVisa)){
+    if (numTarjeta.match(reglaVisa)){
         alert("Tarjeta Visa");
-    }
-    else if(numTarjeta.match(reglaMasterCard)){
+    } else if (numTarjeta.match(reglaMasterCard)){
         alert("Tarjeta MasterCard");
-    }
-    else if (numTarjeta.match(reglaAmExpress)){
-        alert("Tarjeta American Express");
-    }
-    else{
+    } else {
         alert("No trabajamos con esta tarjeta");
     }
   
