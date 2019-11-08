@@ -20,7 +20,7 @@ let totalCostHTML = document.getElementById("totalCost");
 let aPagarHTML = document.getElementById("aPagar");
 
 subtotal = productUnitCost * artBuy;
-let comissionToShow = Math.round((shippingPercentage * subtotal));
+let comissionToShow = Math.round((shippingPercentage * productUnitCost * artBuy));
 total = subtotal + comissionToShow;
 
 subTotalHTML.innerHTML = productCurrency + subtotal;
@@ -103,26 +103,29 @@ document.addEventListener("DOMContentLoaded", function(e){
     });
 
 
-    document.getElementById("premiumradio").addEventListener("change", function(){
+    document.getElementById("premiumradio").addEventListener("click", function(){
         shippingPercentage = 0.15;
         updateCost();
     });
     
-    document.getElementById("expresradio").addEventListener("change", function(){
+    document.getElementById("expresradio").addEventListener("click", function(){
         shippingPercentage = 0.07;
         updateCost();
     });
 
-    document.getElementById("standardradio").addEventListener("change", function(){
+    document.getElementById("standardradio").addEventListener("click", function(){
         shippingPercentage = 0.05;
         updateCost();
     });
+
+    
 
     document.getElementById("bankingRadio").addEventListener("click",function(){
         document.getElementById("bankAccountNumber").removeAttribute("disabled");
         document.getElementById("creditCardNumber").setAttribute("disabled","disabled");
         document.getElementById("creditCardSecurityCode").setAttribute("disabled","disabled");
         document.getElementById("dueDate").setAttribute("disabled","disabled");
+        document.getElementById("formaDePago").innerHTML = BANKING_PAYMENT;
     });
 
     document.getElementById("creditCardPaymentRadio").addEventListener("click",function(){
@@ -130,6 +133,7 @@ document.addEventListener("DOMContentLoaded", function(e){
         document.getElementById("creditCardNumber").removeAttribute("disabled");
         document.getElementById("creditCardSecurityCode").removeAttribute("disabled");
         document.getElementById("dueDate").removeAttribute("disabled");
+        document.getElementById("formaDePago").innerHTML = CREDIT_CARD_PAYMENT;
     })
 
 });

@@ -177,7 +177,7 @@
           <div class="row">
               <div class="col-md-6 mb-3">
                 <label for="shippingStreet">Número de tarjeta</label>
-                <input type="number" class="form-control" id="creditCardNumber" placeholder="" value="" onclick="validarTarjeta();">
+                <input type="number" class="form-control" id="creditCardNumber" placeholder="" value="">
                 <div class="invalid-feedback">
                   Ingresa un número de tarjeta
                 </div>
@@ -233,10 +233,14 @@
             <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="cerrarFormaPago">
                 <span aria-hidden="true">&times;</span>
               </button>
-              
-              <div class="row">
+              <div>
                   <p><h4>Confirma el pago de: </h4> <h4 id="aPagar"></h4></p>
                 </div>
+                <hr>
+                <div>
+                  <p><h4>Forma de pago seleccionada:</h4><h4 id="formaDePago"></h4></p>
+                </div>
+                <hr>
                   <button type="submit" class="btn btn-primary">Aceptar</button>
               </div>
             </div>
@@ -293,5 +297,6 @@
       <script src="js/cart.js"></script>
       <script src="js/popup.js"></script>
       <script src="js/registro.js"></script>
+      <script src="js/validar-tarjetas.js"></script>
     </body>
 </html>
