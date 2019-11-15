@@ -5,7 +5,6 @@ let subtotal = 0;
 let shippingPercentage = 0.15;
 let total = 0;
 let paymentTypeSelected = false;
-const CREDIT_CARD_PAYMENT = "Tarjeta de crédito";
 const BANKING_PAYMENT = "Transferencia bancaria";
 const SINFP = "No se seleccionó ninguna forma de pago";
 let ERROR_MSG = "Ha habido un error :(, verifica qué pasó.";
@@ -90,6 +89,9 @@ document.addEventListener("DOMContentLoaded", function(e){
 
             let articleCountHTML = document.getElementById("articleCountInput");
             articleCountHTML.value = artBuy;
+
+            let aPagarHTML = document.getElementById("aPagar");
+            aPagarHTML.innerHTML = productCurrency + ((productUnitCost * artBuy) + (shippingPercentage * productUnitCost * artBuy));
         }
         
     });
@@ -132,7 +134,6 @@ document.addEventListener("DOMContentLoaded", function(e){
         document.getElementById("creditCardNumber").removeAttribute("disabled");
         document.getElementById("creditCardSecurityCode").removeAttribute("disabled");
         document.getElementById("dueDate").removeAttribute("disabled");
-        document.getElementById("formaDePago").innerHTML = CREDIT_CARD_PAYMENT;
     })
 
 });

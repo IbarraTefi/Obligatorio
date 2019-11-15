@@ -147,20 +147,24 @@
           <div class="container">
           <div class="row justify-content-around">
               <div class="col-4">
-                  <input type="text" class="form-control" placeholder="Calle" required="">
+                  <label>Calle</label>
+                  <input type="text" class="form-control" id="calle" placeholder="Calle" required="">
               </div>
               <div class="col-4">
-                  <input type="number" class="form-control" placeholder="Número de puerta" required="">
+                  <label>Número de puerta</label>
+                  <input type="number" class="form-control" id="nPuerta" placeholder="Número de puerta" required="">
               </div>
             </div>
       </div>
       <div class="container">
           <div class="row justify-content-around">
               <div class="col-4">
-                  <input type="text" class="form-control" placeholder="Esq." required="">
+                  <label>Esquina</label>
+                  <input type="text" class="form-control" id="esquina" placeholder="Esq." required="">
               </div>
               <div class="col-4">
-                  <input type="text" class="form-control" placeholder="País" required="">
+                  <label>País</label>
+                  <input type="text" class="form-control" id="pais" placeholder="País" required="">
               </div>
             </div>
       </div>
@@ -178,25 +182,16 @@
               <div class="col-md-6 mb-3">
                 <label for="shippingStreet">Número de tarjeta</label>
                 <input type="number" class="form-control" id="creditCardNumber" placeholder="" value="">
-                <div class="invalid-feedback">
-                  Ingresa un número de tarjeta
-                </div>
               </div>
               <div class="col-md-4 mb-3">
                 <label for="shippingStreetNumber">Código de seg.</label>
                 <input type="number" class="form-control" id="creditCardSecurityCode" placeholder="" value="" required>
-                <div class="invalid-feedback">
-                  Ingresa el código de seguridad
-                </div>
               </div>
             </div>
             <div class="row">
                 <div class="col-md-6 mb-3">
-                  <label for="dueDate">Vencimiento (MM/AA)</label>
+                  <label for="dueDate">Vencimiento (MM/AAAA)</label>
                   <input type="text" class="form-control" id="dueDate" placeholder="" value="" >
-                  <div class="invalid-feedback">
-                    Ingresa la fecha de vencimiento
-                  </div>
                 </div>
             </div>
             <hr>
@@ -211,9 +206,6 @@
               <div class="col-md-6 mb-3">
                 <label for="bankAccountNumber">Número de cuenta</label>
                 <input type="text" class="form-control" id="bankAccountNumber" placeholder="" value="" >
-                <div class="invalid-feedback">
-                  Ingresa un número de cuenta
-                </div>
               </div>
             </div>
         </div>
