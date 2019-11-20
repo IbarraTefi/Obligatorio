@@ -19,7 +19,6 @@
         -ms-user-select: none;
         user-select: none;
       }
-
       @media (min-width: 768px) {
         .bd-placeholder-img-lg {
           font-size: 3.5rem;
@@ -146,25 +145,35 @@
           <br>
           <div class="container">
           <div class="row justify-content-around">
-              <div class="col-4">
+              <div class="col-md-6 mb-3">
                   <label>Calle</label>
-                  <input type="text" class="form-control" id="calle" placeholder="Calle" required="">
+                  <input type="text" class="form-control" id="calle" required="">
+                  <br>
               </div>
-              <div class="col-4">
+              <div class="col-md-6 mb-3">
                   <label>Número de puerta</label>
-                  <input type="number" class="form-control" id="nPuerta" placeholder="Número de puerta" required="">
+                  <input type="number" class="form-control" id="nPuerta" required="">
+                  <br>
               </div>
             </div>
       </div>
       <div class="container">
           <div class="row justify-content-around">
-              <div class="col-4">
+              <div class="col-md-6 mb-3">
                   <label>Esquina</label>
-                  <input type="text" class="form-control" id="esquina" placeholder="Esq." required="">
+                  <input type="text" class="form-control" id="esquina" required="">
               </div>
-              <div class="col-4">
+              <div class="col-md-6 mb-3">
                   <label>País</label>
-                  <input type="text" class="form-control" id="pais" placeholder="País" required="">
+                  <input type="text" class="form-control" id="pais" required="">
+              </div>
+              <div class="container">
+                <div class="row justify-content-areund">
+                  <div class="col-md-6 mb-3">
+                    <label>E-Mail</label>
+                    <input type="email" class="form-control" id="eMailInput" required>
+                  </div>
+                </div>
               </div>
             </div>
       </div>
@@ -185,7 +194,7 @@
               </div>
               <div class="col-md-4 mb-3">
                 <label for="shippingStreetNumber">Código de seg.</label>
-                <input type="number" class="form-control" id="creditCardSecurityCode" placeholder="" value="" required>
+                <input type="number" class="form-control" id="creditCardSecurityCode" placeholder="" value="">
               </div>
             </div>
             <div class="row">
@@ -214,7 +223,7 @@
       <p>
         <div class="container">
           <div class="row">
-        <button class="btn btn-primary btn-lg col align-self-center" type="submit" id="abrirFormaPago">Comprar</button>
+        <button class="btn btn-primary btn-lg align-self-center" type="submit" id="abrirFormaPago">Comprar</button>
             </div>
           </div>
         </div>
@@ -226,14 +235,17 @@
                 <span aria-hidden="true">&times;</span>
               </button>
               <div>
-                  <p><h4>Confirma el pago de: </h4> <h4 id="aPagar"></h4></p>
-                </div>
+                  <p><h4 id="exito">¡Su compra fue realizada con éxito!</h4></p>
+              </div>
                 <hr>
-                <div>
-                  <p><h4>Forma de pago seleccionada:</h4><h4 id="formaDePago"></h4></p>
-                </div>
+              <div>
+                  <p><h5>Forma de pago seleccionada:</h5><h5 id="formaDePago"></h5></p>
+              </div>
                 <hr>
-                  <button type="submit" class="btn btn-primary">Aceptar</button>
+              <div>
+                  <p><h5>En unos minutos le llegará la confirmación de su compra a </h5><h5 id="eMail"></h5></p>
+              </div>
+                  <a class="btn btn-primary" href="index.html">Aceptar</a>
               </div>
             </div>
 

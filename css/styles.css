@@ -208,3 +208,7 @@ color: #000; /*cuando el cursor pase por arriba la x queda negra*/
 .popup.active{
   transform: scale(1);
 }
+
+#exito{
+  color: green;
+}
