@@ -13,13 +13,14 @@ var btnAbrirFormaPago = document.getElementById("abrirFormaPago");
 var overlay = document.getElementById("overlay");
 var formaPago = document.getElementById("formaPago");
 
+
 // Función para calcular los costos.
 function updateCost(){
 
 let subTotalHTML = document.getElementById("subTotal");
 let comissionCostHTML = document.getElementById("comission");
 let totalCostHTML = document.getElementById("totalCost");
-let aPagarHTML = document.getElementById("aPagar");
+// let aPagarHTML = document.getElementById("aPagar");
 
 subtotal = productUnitCost * artBuy;
 let comissionToShow = Math.round((shippingPercentage * productUnitCost * artBuy));
@@ -28,15 +29,8 @@ total = subtotal + comissionToShow;
 subTotalHTML.innerHTML = productCurrency + subtotal;
 comissionCostHTML.innerHTML = productCurrency + comissionToShow;
 totalCostHTML.innerHTML = productCurrency + total;
-// aPagarHTML.innerHTML = productCurrency + total;
+aPagarHTML.innerHTML = productCurrency + total;
 
-}
-
-function showPaymentTypeNotSelected(){
-
-}
-
-function hidePaymentTypeNotSelected(){
 }
 
 function showArticles(articles){
@@ -63,7 +57,6 @@ function showArticles(articles){
             <div class="col-sm">` + articulo.currency + articulo.unitCost + `</div>
         </div>
     </div>
-    <hr>
         `
     }
     document.getElementById("art-list-container").innerHTML = htmlContentToAppend;
@@ -93,8 +86,6 @@ document.addEventListener("DOMContentLoaded", function(e){
             let articleCountHTML = document.getElementById("articleCountInput");
             articleCountHTML.value = artBuy;
 
-            // let aPagarHTML = document.getElementById("aPagar");
-            // aPagarHTML.innerHTML = productCurrency + ((productUnitCost * artBuy) + (shippingPercentage * productUnitCost * artBuy));
         }
         
         
@@ -120,7 +111,6 @@ document.addEventListener("DOMContentLoaded", function(e){
         shippingPercentage = 0.05;
         updateCost();
     });
-
     
 
     document.getElementById("bankingRadio").addEventListener("click",function(){
@@ -133,20 +123,26 @@ document.addEventListener("DOMContentLoaded", function(e){
         document.getElementById("creditCardNumber").removeAttribute("required","");
         document.getElementById("creditCardSecurityCode").removeAttribute("required","");
         document.getElementById("dueDate").removeAttribute("required","");
+        document.getElementById("creditCardNumber").classList.remove('is-invalid');
+        document.getElementById("creditCardSecurityCode").classList.remove('is-invalid');
+        document.getElementById("dueDate").classList.remove('is-invalid');
+
+        
 
         btnAbrirFormaPago.addEventListener("click",function(){
-            let cuentaInput = document.getElementById("bankAccountNumber");
-            var datosCorrectos = true;
+           
+           let cuentaInput = document.getElementById("bankAccountNumber");
+           var datosCorrectos = true;
+
+           document.getElementById("creditCardNumber").classList.remove('is-invalid');
+           document.getElementById("creditCardSecurityCode").classList.remove('is-invalid');
+           document.getElementById("dueDate").classList.remove('is-invalid');
 
             if(cuentaInput.value === '')
             {
                 cuentaInput.classList.add('is-invalid');
                 datosCorrectos = false;
             }
-                if(datosCorrectos === false)
-            {
-                alert("Debe ingresar una forma de pago.")
-            } 
                 if(datosCorrectos === true)
             {
                 overlay.classList.add("active");
@@ -165,13 +161,18 @@ document.addEventListener("DOMContentLoaded", function(e){
         document.getElementById("creditCardNumber").setAttribute("required","");
         document.getElementById("creditCardSecurityCode").setAttribute("requied","");
         document.getElementById("dueDate").setAttribute("requierd","");
+        document.getElementById("bankAccountNumber").classList.remove('is-invalid');
+        
 
         btnAbrirFormaPago.addEventListener("click",function(){
+
+            document.getElementById("bankAccountNumber").classList.remove('is-invalid');
     
-            let tarjetaInput = document.getElementById("creditCardNumber");
+           let tarjetaInput = document.getElementById("creditCardNumber");
            let codigoInput = document.getElementById("creditCardSecurityCode");
            let vencimientoInput = document.getElementById("dueDate");
            var datosCorrectos = true;
+
 
             if(tarjetaInput.value === '')
             {
@@ -188,10 +189,6 @@ document.addEventListener("DOMContentLoaded", function(e){
                 vencimientoInput.classList.add('is-invalid');
                 datosCorrectos = false;
             }
-                if(datosCorrectos === false)
-            {
-                alert("Debe ingresar una forma de pago.")
-            } 
                 if(datosCorrectos === true)
             {
                 overlay.classList.add("active");

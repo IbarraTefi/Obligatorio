@@ -78,59 +78,38 @@
         <div id="art-list-container">
         </div>
       </p>
-      <div class="container">
-          <div class="row justify-content-end">
-              <div class="col-sm-4">
-                  <strong>Cantidad</strong>
-                </div>
-                  <div class="col-sm-4">
-                    <span class="input-group mb-3" align="center">
-                      <input type="number" style="text-align: center;" class="form-control" id="articleCountInput" placeholder="" required="" min="1">
-                    </span>
-                  </div>
-                </div>
-              </div>
-          </div>
-      </div>
-      <p>
-        <hr width="60%" align="right">
-        <div class="container">
-          <div class="row justify-content-end">
-            <div class="col-sm-4">
-              <strong>Sub total</strong>
-            </div>
-            <div class="col-sm-4">
-            <span id="subTotal">-</span>
-            </div>
-          </div>
-        </div>
-      </p>
-      <hr width="60%" align="right">
-        <p>
-        <div class="container">
-          <div class="row justify-content-end">
-            <div class="col-sm-4">
-              <strong>Costo según<button type="button" class="m-1 btn btn-link" data-toggle="modal" data-target="#conditions">tipo de envío</button></strong>
-            </div>
-            <div class="col-sm-4">
-              <span class="text-muted" id="comission">-</span>
-            </div>
-          </div>
-        </div>
-      </p>
-      <hr width="60%" align="right">
-        <p>
-          <div class="container">
-            <div class="row justify-content-end">
-              <div class="col-sm-4">
-                <strong>Total</strong>
-              </div>
-            <div class="col-sm-4">
-              <strong id="totalCost">-</strong>
-          </div>
-        </p>
-        <hr width="60%" align="right">
-      </div>
+
+      <div>
+      <table class="table table-striped col-8" align="center">
+        <thead>
+          <tr>
+            <th scope="col"><h5>Cantidad</h5></th>
+            <th scope="col">
+              <span class="input-group mb-3"  align="center">
+                <input type="number" style="text-align: center;" class="form-control" id="articleCountInput" placeholder="" required="" min="1">
+              </span>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="col" class="col align-self-center"><h5>Sub total</h5></th>
+            <td>
+                <h5 id="subTotal">-</h5>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row"><h5>Costo según<button type="button" class="m-1 btn btn-link" data-toggle="modal" data-target="#conditions">tipo de envío</button></h5></th>
+            <td><h5 class="text-muted" id="comission">-</h5></td>
+          </tr>
+          <tr>
+            <th scope="row"><h5>Total</h5></th>
+            <td><h5 id="totalCost">-</h5></td>
+          </tr>
+        </tbody>
+      </table>
+  
+      <br>
 
       <ul class="nav nav-tabs" id="myTab" role="tablist">
         <li class="nav-item">
@@ -202,6 +181,9 @@
                   <label for="dueDate">Vencimiento (MM/AAAA)</label>
                   <input type="text" class="form-control" id="dueDate" placeholder="" value="" >
                 </div>
+                <div class="col align-self-end">
+                  <p class="text-muted">Trabajamos con tarjetas: Visa y MasterCard</p>
+                </div>
             </div>
             <hr>
             <div class="row">
@@ -214,7 +196,7 @@
             <div class="row">
               <div class="col-md-6 mb-3">
                 <label for="bankAccountNumber">Número de cuenta</label>
-                <input type="text" class="form-control" id="bankAccountNumber" placeholder="" value="" >
+                <input type="number" class="form-control" id="bankAccountNumber" placeholder="" value="" >
               </div>
             </div>
         </div>

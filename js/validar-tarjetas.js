@@ -23,15 +23,8 @@ document.getElementById("creditCardNumber").addEventListener("change",function()
         alert("No trabajamos con esta tarjeta");
     }
   
-});
+}); 
 
-document.getElementById("dueDate").addEventListener("change",function(){
-    var vencimiento = this.value;
-    if (Date.parse(vencimiento)<hoy){
-        alert("La fecha ingresada no es correcta");
-    }
-});
-// cadena.split(/);
 
 document.getElementById("profile-tab").addEventListener("click",function(){
 
