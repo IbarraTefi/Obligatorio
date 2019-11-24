@@ -212,3 +212,22 @@ color: #000; /*cuando el cursor pase por arriba la x queda negra*/
 #exito{
   color: green;
 }
+
+.card-header {
+  background: white;
+}
+
+.card {
+  box-shadow: none!important;
+  border: none!important;
+}
+
+.card-body {
+  text-align: center;
+  font-size: 20px;
+}
+
+.accordion .btn-link {
+  color: black;
+}
+

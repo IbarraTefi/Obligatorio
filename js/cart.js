@@ -126,6 +126,9 @@ document.addEventListener("DOMContentLoaded", function(e){
         document.getElementById("creditCardNumber").classList.remove('is-invalid');
         document.getElementById("creditCardSecurityCode").classList.remove('is-invalid');
         document.getElementById("dueDate").classList.remove('is-invalid');
+        document.getElementById("creditCardNumber").value = "";
+        document.getElementById("creditCardSecurityCode").value  = "";
+        document.getElementById("dueDate").value = "";
 
         
 
@@ -162,6 +165,7 @@ document.addEventListener("DOMContentLoaded", function(e){
         document.getElementById("creditCardSecurityCode").setAttribute("requied","");
         document.getElementById("dueDate").setAttribute("requierd","");
         document.getElementById("bankAccountNumber").classList.remove('is-invalid');
+        document.getElementById("bankAccountNumber").value = "";
         
 
         btnAbrirFormaPago.addEventListener("click",function(){
@@ -171,14 +175,35 @@ document.addEventListener("DOMContentLoaded", function(e){
            let tarjetaInput = document.getElementById("creditCardNumber");
            let codigoInput = document.getElementById("creditCardSecurityCode");
            let vencimientoInput = document.getElementById("dueDate");
+           let msjTarjeta = document.getElementById("msjTarjeta");
            var datosCorrectos = true;
 
 
             if(tarjetaInput.value === '')
             {
                 tarjetaInput.classList.add('is-invalid');
+                msjTarjeta.innerHTML = "Debe ingresar un número de tarjeta."
                 datosCorrectos = false;
+            } else{
+                // Visa
+                var reglaVisa = "^4[0-9]{6,}$"
+
+                // MasterCard
+                var reglaMasterCard = "5[1-5][0-9]{14}$"
+    
+                if (tarjetaInput.value.match(reglaVisa)){
+                formaDePago.innerHTML = "Tarjeta de crédito Visa";
+                } else if (tarjetaInput.value.match(reglaMasterCard)){
+                formaDePago.innerHTML = "Tarjeta de crédito MasterCard";
+                } else {
+                tarjetaInput.classList.add('is-invalid');
+                datosCorrectos = false;
+                msjTarjeta.innerHTML = "No trabajamos con esta tarjeta";
+                }
+  
+
             }
+  
             if(codigoInput.value === '')
             {
                 codigoInput.classList.add('is-invalid');
@@ -188,9 +213,43 @@ document.addEventListener("DOMContentLoaded", function(e){
             {
                 vencimientoInput.classList.add('is-invalid');
                 datosCorrectos = false;
+            } else{ //Verifica que las fechas ingresadas sean correctas.
+
+                var mes = parseInt(vencimientoInput.value.substr(0,2));
+                var anio = parseInt(vencimientoInput.value.substr(3,4));
+                var mesActual = new Date().getMonth()+1;
+                var anioActual = new Date().getFullYear();
+                var msjError = document.getElementById("msjError");
+
+
+    if(isNaN(mes) || isNaN(anio)) 
+    {
+        document.getElementById("dueDate").classList.add('is-invalid');
+        msjError.innerHTML = "Debe ingresar un número."
+        datosCorrectos = false;
+    }
+    if(anio < anioActual)
+    {
+        document.getElementById("dueDate").classList.add('is-invalid');
+        msjError.innerHTML = "La fecha no es correcta."
+        datosCorrectos = false;
+    } 
+    if(anio === anioActual && (mes < mesActual || mes > 12))
+    {
+        document.getElementById("dueDate").classList.add('is-invalid');
+        msjError.innerHTML = "La fecha no es correcta."
+        datosCorrectos = false;
+    } 
+    if (mes > 12)
+    {
+        document.getElementById("dueDate").classList.add('is-invalid');
+        msjError.innerHTML = "La fecha no es correcta."
+        datosCorrectos = false;
+    }
             }
                 if(datosCorrectos === true)
             {
+                
                 overlay.classList.add("active");
                 formaPago.classList.add("active");
             }

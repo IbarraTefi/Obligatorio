@@ -170,16 +170,24 @@
               <div class="col-md-6 mb-3">
                 <label for="shippingStreet">Número de tarjeta</label>
                 <input type="number" class="form-control" id="creditCardNumber" placeholder="" value="">
+              <div class="invalid-feedback" id="msjTarjeta">
+              </div>
               </div>
               <div class="col-md-4 mb-3">
                 <label for="shippingStreetNumber">Código de seg.</label>
                 <input type="number" class="form-control" id="creditCardSecurityCode" placeholder="" value="">
+                <div class="invalid-feedback">
+                  Debe ingresar el código de seguridad de su tarjeta.
+                </div>
               </div>
             </div>
             <div class="row">
                 <div class="col-md-6 mb-3">
                   <label for="dueDate">Vencimiento (MM/AAAA)</label>
                   <input type="text" class="form-control" id="dueDate" placeholder="" value="" >
+                <div class="invalid-feedback" id="msjError">
+                 
+                </div>
                 </div>
                 <div class="col align-self-end">
                   <p class="text-muted">Trabajamos con tarjetas: Visa y MasterCard</p>
@@ -197,6 +205,9 @@
               <div class="col-md-6 mb-3">
                 <label for="bankAccountNumber">Número de cuenta</label>
                 <input type="number" class="form-control" id="bankAccountNumber" placeholder="" value="" >
+              <div class="invalid-feedback">
+                Debe ingresar el número de cuenta.
+              </div>
               </div>
             </div>
         </div>

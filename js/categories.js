@@ -5,6 +5,7 @@ var currentCategoriesArray = [];
 var currentSortCriteria = undefined;
 var minCount = undefined;
 var maxCount = undefined;
+let hola = false;
 
 function sortCategories(criteria, array){
     let result = [];
@@ -134,3 +135,4 @@ document.addEventListener("DOMContentLoaded", function(e){
         showCategoriesList();
     });
 });
+

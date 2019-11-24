@@ -6,11 +6,12 @@ function showImagesGallery(array){
 
     for(let i = 0; i < array.length; i++){
         let imageSrc = array[i];
+        let id = [i];
 
         htmlContentToAppend += `
         <div class="col-lg-3 col-md-4 col-6">
             <div class="d-block mb-4 h-100">
-                <img class="img-fluid img-thumbnail" src="` + imageSrc + `" alt="">
+                <img class="img-fluid img-thumbnail" id="`+id+`" src="` + imageSrc + `" alt="">
             </div>
         </div>
         `
@@ -35,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function(e){
         
             categoryNameHTML.innerHTML = category.name;
             categoryDescriptionHTML.innerHTML = category.description;
-            productCountHTML.innerHTML = category.productCount;
+            productCountHTML.innerHTML = category.productCount + " " + category.name;
             productCriteriaHTML.innerHTML = category.productCriteria;
 
             //Muestro las imagenes en forma de galería
@@ -43,3 +44,4 @@ document.addEventListener("DOMContentLoaded", function(e){
         }
     });
 });
+
