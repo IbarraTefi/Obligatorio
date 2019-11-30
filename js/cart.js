@@ -29,7 +29,6 @@ total = subtotal + comissionToShow;
 subTotalHTML.innerHTML = productCurrency + subtotal;
 comissionCostHTML.innerHTML = productCurrency + comissionToShow;
 totalCostHTML.innerHTML = productCurrency + total;
-aPagarHTML.innerHTML = productCurrency + total;
 
 }
 
@@ -256,4 +255,11 @@ document.addEventListener("DOMContentLoaded", function(e){
             });
     });
     });
+
+    btnAbrirFormaPago.addEventListener("click", function(){
+        if(!document.getElementById("creditCardPaymentRadio").checked && !document.getElementById("bankingRadio").checked){
+            alert("Debe seleccionar una forma de pago.")
+        }
+    });
 });
+
