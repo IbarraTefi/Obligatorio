@@ -139,6 +139,7 @@ document.addEventListener("DOMContentLoaded", function(e){
            document.getElementById("creditCardNumber").classList.remove('is-invalid');
            document.getElementById("creditCardSecurityCode").classList.remove('is-invalid');
            document.getElementById("dueDate").classList.remove('is-invalid');
+           document.getElementById("bankAccountNumber").classList.remove('is-invalid');
 
             if(cuentaInput.value === '')
             {
@@ -170,6 +171,9 @@ document.addEventListener("DOMContentLoaded", function(e){
         btnAbrirFormaPago.addEventListener("click",function(){
 
             document.getElementById("bankAccountNumber").classList.remove('is-invalid');
+            document.getElementById("creditCardNumber").classList.remove('is-invalid');
+            document.getElementById("creditCardSecurityCode").classList.remove('is-invalid');
+            document.getElementById("dueDate").classList.remove('is-invalid');
     
            let tarjetaInput = document.getElementById("creditCardNumber");
            let codigoInput = document.getElementById("creditCardSecurityCode");
